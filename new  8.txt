@@ -1,0 +1,5 @@
+<form action="new  7.php" method="post"> 
+
+Name:<input type="text" name="names" required/><br>
+<input type="submit" value="Sign Up!"/>
+</form>

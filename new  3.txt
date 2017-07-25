@@ -1,0 +1,30 @@
+<?php
+$con = mysql_connect("localhost:3307","root","munna2755") or die(mysql_error());
+ mysql_select_db('vtc') or die(mysql_error());
+if( !filter_var($_POST['emailid'], FILTER_VALIDATE_EMAIL) )
+	echo "the email entered is invalid.";
+ $regex="/^[789][0-9]{9}$/";
+if(!preg_match($regex,$_POST['number']))
+	echo "The contact number is invalid.";
+  $sql = "SELECT * FROM consumers1 ";
+  $result= mysql_query($sql);
+  $count=0;
+  if($result){
+  $row = mysql_fetch_row($result);
+   while($row){
+  if($_POST['emailid']==$row[1])
+  $count++;
+  }}else $count=0;
+  if($count>0)
+  echo"email id is already registered";
+  else if(filter_var($_POST['emailid'], FILTER_VALIDATE_EMAIL)&&(preg_match($regex,$_POST['number'])))
+  {
+  $a=$_POST['name'];
+$b=$_POST['emailid'];
+$c=$_POST['password'];
+$d=$_POST['number'];
+$e=$_POST['address'];
+$f=$_POST['city'];
+  $sql="INSERT INTO consumers1 VALUES($a,$b,$c,$d,$e,$f);";
+  header('location: menu.php');}
+  ?>

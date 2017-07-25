@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Flower Store | Home</title>
+</head>
+<body>
+<style type="text/css"> body {background-color:#17375d;} </style>
+
+<center>
+<div style="width:900px;">
+<div style="background-color:white;margin-top:20px;
+margin-bottom:100px;
+margin-left:50px;
+margin-right:50px;padding: 30px 20px 20px 20px;">
