@@ -49,30 +49,34 @@ li a:hover:not(.active) {
 </table></div>
 
 <center><p style="clear:both;"></p>
-<br><br>
 <ul>
   <li><a href="requests.php">Home</a></li>
   <li><a href="raiseRequest.php">Raise a Request</a></li>
-  <li><a href="#contact">My Requests</a></li>
-  <li><a href="#contact">My Contributions</a></li>
-  <li><a href="#contact">About us</a></li>
-  <li><a href="#contact">My Profile</a></li>
+  <li><a href="myRequests.php">My Requests</a></li>
+  <li><a href="myContributions.php">My Contributions</a></li>
+  
+  <li><a href="consumersprofile.php?id=<?php session_start(); $user = $_SESSION['user']; echo $user; ?>">My Profile</a></li>
 </ul>
 
 
 
-<div style="width:700px;height:300px;float:left;
+<div style="width:700px;height:500px;float:left;
 margin-left:300px;padding: 10px 20px 20px 20px;font-family:candara; font-size:1.5em;">
 <p style="text-align:center "><b>Add a request</b></p>
 <p style="clear:both;"></p>
-<form action="addRequest.php" method="post"><table>
+<form enctype="multipart/form-data" action="addRequest.php" method="post"><table>
+<tr><td><label for="file">Display Pic:</label></td><td>
+<input type="file" name="file" id="file"></td>
 <tr><td>Benificiary Name:</td><td><input type="text" name="name" placeholder="Your Name" style="border-radius:5px; height: 25px; font-size:1.0em;" required/></td></tr>
 <tr><td>Age:</td><td>  <input type="text" name="age" placeholder="Age" style="border-radius:5px; height: 25px; font-size:1.0em;" required/></td></tr>
 <tr><td>School:</td><td><input type="text" id = "skul" name="school" placeholder="Select School" style="border-radius:5px; height: 25px; font-size:1.0em;" required/> <input type="button" name="schoolChoice" onClick="selectSchool('skul')" value="?"></td></tr>
 <tr><td>Class: </td><td><input type="text" name="class" placeholder="class" style="border-radius:5px; height: 25px; font-size:1.0em;" required/></td></tr>
 <tr><td>City:</td><td> <input type="text" name="address" placeholder="City" style="border-radius:5px; height: 25px; font-size:1.0em;" required/></td></tr>
-<tr><td>Address:   </td><td> <input type="text" name="city" placeholder="Address" style="border-radius:5px; height: 25px; font-size:1.0em;" required/></td></tr></table>
-<<br>
+<tr><td>Address:   </td><td> <input type="text" name="city" placeholder="Address" style="border-radius:5px; height: 25px; font-size:1.0em;" required/></td></tr>
+<tr><td>Aadhaar number: </td><td> <input maxlength="12" type="password" name="aadhar" placeholder="Aadhaar Number"  style="border-radius:5px; height: 25px; font-size:1.0em;"/></td></tr>
+<tr><td>BPL number: </td><td> <input maxlength="12" type="password" name="bpl" placeholder="BPL Number"  style="border-radius:5px; height: 25px; font-size:1.0em;"/></td></tr>
+<tr><td>NCL number: </td><td> <input maxlength="12" type="password" name="ncl" placeholder="NCL Number"  style="border-radius:5px; height: 25px; font-size:1.0em;"/></td></tr></table>
+<br>
 <input type="submit" value="Add!" style="border-style: solid; border-color: black;background:green;color:white;border-radius:5px;font-size:1.1em"/>
 </form>
 </div>

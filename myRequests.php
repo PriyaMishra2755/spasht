@@ -95,7 +95,7 @@ li a:hover:not(.active) {
 <div style="padding-right:50px;padding-left:50px;font-family:candara;font-size:1.2em;text-align:left font-weight: normal"">
 <?php
 $con = mysqli_connect("localhost:3307","root","munna2755", "vtc") or die(mysql_error());
-$sql = "SELECT * FROM beneficiaries WHERE isPaid = 0";
+$sql = "SELECT * FROM beneficiaries WHERE requester = '$user'";
 $result=mysqli_query($con , $sql);
 //$i = 0; 
 ?>
@@ -167,8 +167,11 @@ $result=mysqli_query($con , $sql);
 	 
 	 
 	 
-	 <td style="padding 15px 15px 15px 250px; padding-left: 150px;">Fee: Rs. <span style="font-weight: bold"> <?php echo $rows['Fee']; ?></span><br>&nbsp&nbsp&nbsp
+	 <td style="padding 15px 15px 15px 300px; padding-left: 150px;">Fee: Rs. <span style="font-weight: bold"> <?php echo $rows['Fee']; ?></span><br>&nbsp&nbsp&nbsp
+	 <?php if($rows['isPaid'] == 0) { ?>
 	 <input type=button class="w3-button w3-xlarge w3-circle w3-teal" value="Pay" onClick="PayValue('<?php echo $rows['School']; ?>')" />
+ <?php } else { ?>
+	 <input type=button class="w3-button w3-xlarge w3-circle w3-teal" value="Paid" /> <?php } ?>
 	 </td>
 	 
 	 

@@ -12,12 +12,20 @@ $c=strip_tags(mysqli_real_escape_string($con, $_POST['class']));
 
 $e=strip_tags(mysqli_real_escape_string($con, $_POST['address']));
 $f=strip_tags(mysqli_real_escape_string($con, $_POST['city']));
+$g=strip_tags(mysqli_real_escape_string($con, $_POST['aadhar']));
+$h=strip_tags(mysqli_real_escape_string($con, $_POST['bpl']));
+$i=strip_tags(mysqli_real_escape_string($con, $_POST['ncl']));
 session_start();
 $g = $_SESSION['user'];
 $sql = "SELECT MonthlyFee FROM registeredSchools WHERE PIN = '$a'";
 $result=mysqli_query($con , $sql);
 $row = mysqli_fetch_row($result);
-$sql = "INSERT INTO beneficiaries VALUES('$d','$b','$a','$c','$e','$row[0]','0', '$g','$f', NULL);";
+$target_Path = "images/";
+$filename=$_FILES['file']['name'];
+$target_Path = $target_Path.basename( $_FILES['file']['name'] );
+if (!move_uploaded_file( $_FILES['file']['tmp_name'], $target_Path ))
+	echo "pic not uploaded";
+$sql = "INSERT INTO beneficiaries (aadharNum, bplNum, nclNum, Name, Age, School, Class, Address, Fee, isPaid, requester,City, Contributor, dp) VALUES('$g', '$h', '$i', '$d','$b','$a','$c','$e','$row[0]','0', '$g','$f', NULL, '$filename');";
 if(!mysqli_query($con , $sql))
 	echo mysqli_error($con);
 ?>
@@ -75,10 +83,10 @@ li a:hover:not(.active) {
 <ul>
   <li><a href="requests.php">Home</a></li>
   <li><a href="raiseRequest.php">Raise a Request</a></li>
-  <li><a href="#contact">My Requests</a></li>
-  <li><a href="#contact">My Contributions</a></li>
-  <li><a href="#contact">About us</a></li>
-  <li><a href="#contact">My Profile</a></li>
+  <li><a href="myRequests.php">My Requests</a></li>
+  <li><a href="myContributions.php">My Contributions</a></li>
+  
+  <li><a href="consumersprofile.php?id=<?php session_start(); $user = $_SESSION['user']; echo $user; ?>">My Profile</a></li>
 </ul>
 <br> <br>
 <div style="padding-right:50px;padding-left:50px;font-family:candara;font-size:1.2em;text-align:left font-weight: normal"">

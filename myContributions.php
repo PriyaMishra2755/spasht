@@ -7,13 +7,6 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <body>
-<script>
-function PayValue(x)
-{
-	
-	window.open("http://paytm.com");
-}
-</script>
 <style type="text/css"> body {background-image: url("bk.jpg");
 background-color: #cccccc;}
 th {
@@ -88,14 +81,13 @@ li a:hover:not(.active) {
   <li><a href="raiseRequest.php">Raise a Request</a></li>
   <li><a href="myRequests.php">My Requests</a></li>
   <li><a href="myContributions.php">My Contributions</a></li>
-  
   <li><a href="consumersprofile.php?id=<?php session_start(); $user = $_SESSION['user']; echo $user; ?>">My Profile</a></li>
 </ul>
 
 <div style="padding-right:50px;padding-left:50px;font-family:candara;font-size:1.2em;text-align:left font-weight: normal"">
 <?php
 $con = mysqli_connect("localhost:3307","root","munna2755", "vtc") or die(mysql_error());
-$sql = "SELECT * FROM beneficiaries WHERE isPaid = 0";
+$sql = "SELECT * FROM beneficiaries WHERE Contributor = '$user'";
 $result=mysqli_query($con , $sql);
 //$i = 0; 
 ?>
@@ -167,8 +159,9 @@ $result=mysqli_query($con , $sql);
 	 
 	 
 	 
-	 <td style="padding 15px 15px 15px 250px; padding-left: 150px;">Fee: Rs. <span style="font-weight: bold"> <?php echo $rows['Fee']; ?></span><br>&nbsp&nbsp&nbsp
-	 <input type=button class="w3-button w3-xlarge w3-circle w3-teal" value="Pay" onClick="PayValue('<?php echo $rows['School']; ?>')" />
+	 <td style="padding 15px 15px 15px 300px; padding-left: 150px;">Fee: Rs. <span style="font-weight: bold"> <?php echo $rows['Fee']; ?></span><br>&nbsp&nbsp&nbsp
+	 
+		 <input type=button class="w3-button w3-xlarge w3-circle w3-teal" value="Paid" />
 	 </td>
 	 
 	 
