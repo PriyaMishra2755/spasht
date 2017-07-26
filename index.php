@@ -49,12 +49,12 @@ li a:hover:not(.active) {
 <p style="clear:both;"></p>
 <br><br>
 <ul>
-  <li><a href="requests.php">Home</a></li>
-  <li><a href="raiseRequest.php">Raise a Request</a></li>
-  <li><a href="myRequests.php">My Requests</a></li>
-  <li><a href="myContributions.php">My Contributions</a></li>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#home">Raise a Request</a></li>
+  <li><a href="#homep">My Requests</a></li>
+  <li><a href="#home">My Contributions</a></li>
   
-  <li><a href="consumersprofile.php?id=<?php session_start(); $user = $_SESSION['user']; echo $user; ?>">My Profile</a></li>
+  <li><a href="#home">My Profile</a></li>
 </ul>
 
 <div style="padding-right:50px;padding-left:50px;font-family:candara;font-size:1.2em;text-align:left font-weight: normal"">

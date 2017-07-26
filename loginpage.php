@@ -48,7 +48,7 @@ li a:hover:not(.active) {
 <div style="padding-top:20px;padding-right:50px;">
 <p style="clear:both;"></p>
 <div style="width:600px;height:300px;float:left;
-margin-left:20px;padding: 10px 20px 20px 20px;font-family:candara; font-size:1.5em;">
+margin-left:10px;padding: 10px 0px 20px 0px;font-family:candara; font-size:1.5em;">
 <p style="text-align: center "><b>SIGNUP</b></p>
 <p style="clear:both;"></p>
 <form action="signup.php" method="post" enctype="multipart/form-data"><table>
@@ -69,7 +69,7 @@ margin-left:20px;padding: 10px 20px 20px 20px;font-family:candara; font-size:1.5
 
 
 <div style="width:400px;height:150px;float:right;
-margin-right:100px;padding: 10px 20px 20px 10px;font-family:candara; font-size:1.5em;">
+margin-right:10px;padding: 10px 20px 20px 10px;font-family:candara; font-size:1.5em;">
 <p style="text-align: center; "><b>LOGIN</b></p>
 <p style="clear:both;"></p>
 <form action="loginn.php" method="post"><table>
